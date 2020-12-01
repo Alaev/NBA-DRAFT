@@ -1,28 +1,15 @@
 import React from 'react';
-import Button from './components/button/button';
-import PlayerListContainer from './components/players-section/players-section';
-
+import PlayersListContainer from './components/players-container/players-container';
 
 function App() {
-
   return (
-    <div className="App w-1/2 h-screen">
-      <header className="App-header"> Application</header>
-
-      <PlayerListContainer />
-
-      <div className="flex flex-row  mt-5 border border-gray-100 p-3 m-1 shadow rounded-md">
-        Features:
-       <Button className="rounded-full bg-pink-300 hover:bg-pink-500">
-         strick
-       </Button>
-       <Button className="rounded-full bg-blue-300 hover:bg-blue-500">
-         lose
-       </Button>
-      </div>
+    <div className="mx-auto w-1/2">
+      <header className="bg-blue-900 text-gray-50 px-4 py-6 mx-1 mt-12 mb-4 border border-yellow-500 uppercase rounded-lg text-center text-6xl">
+        nba draft
+      </header>
+      <PlayersListContainer />
     </div>
   );
 }
 
 export default App;
-

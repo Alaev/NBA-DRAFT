@@ -7,15 +7,14 @@ module.exports = {
       xl: '1280px',
     },
     fontFamily: {
-      display: ['Roboto', 'sans-serif'],
-      body: ['Roboto', 'sans-serif'],
+      display: ['sans-serif'],
+      body: ['sans-serif'],
     },
-    extend: {
-    },
+    extend: {},
   },
   variants: {
     borderColor: ['hover', 'focus'],
-    transitionProperty: ['responsive', 'motion-safe', 'motion-reduce']
+    transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
   },
   future: {
     removeDeprecatedGapUtilities: true,

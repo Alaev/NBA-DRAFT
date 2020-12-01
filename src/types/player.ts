@@ -18,8 +18,5 @@ export interface Player {
   position: string;
   team: Team;
   weight_pounds: number | null;
-}
-
-interface Props {
-  player: Player;
+  favorite: boolean;
 }
