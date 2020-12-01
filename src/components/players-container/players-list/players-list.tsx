@@ -11,9 +11,10 @@ interface Props {
   players: Player[];
   isFilterable?: boolean;
   isEditable?: boolean;
+  isLoading: boolean;
 }
 
-export default function FavoritesList({ players, isFilterable, isEditable }: Props) {
+export default function FavoritesList({ players, isFilterable, isEditable, isLoading }: Props) {
   const [modal, setModal] = useState(false);
   const [uiColor, setUiColor] = useState('#FFF');
   const [searchTherm, setSearchTherm] = useState('');
@@ -54,7 +55,7 @@ export default function FavoritesList({ players, isFilterable, isEditable }: Pro
         {isEditable && (
           <>
             <Button
-              className="absolute top-1 right-1 bg-blue-900 text-white hover:bg-blue-800 rounded-full  hover:border-yellow-100"
+              className="absolute top-1 right-1 bg-blue-900 text-white hover:bg-blue-700 rounded-full  hover:border-yellow-100"
               onClick={toggleEdit}
             >
               <Icon>
@@ -65,6 +66,7 @@ export default function FavoritesList({ players, isFilterable, isEditable }: Pro
             {modal && <ColorModal value={uiColor} onChange={handleColorChange} toggle={toggleEdit} />}
           </>
         )}
+        {isLoading && <div className="absolute top-12 right-3 font-light text-yellow-500">loading...</div>}
       </div>
 
       <div className="h-96 px-4 overflow-y-auto bg-gray-100" style={{ backgroundColor: isEditable ? uiColor : undefined }}>
@@ -79,4 +81,5 @@ export default function FavoritesList({ players, isFilterable, isEditable }: Pro
 FavoritesList.defaultProps = {
   isFilterable: false,
   isEditable: false,
+  isLoading: false,
 };

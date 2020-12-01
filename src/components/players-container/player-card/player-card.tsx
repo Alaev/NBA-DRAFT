@@ -35,7 +35,7 @@ export default function PlayerCard({ player }: Props) {
     <div className="flex px-2 py-4 my-2 border bg-white border-gray-200 hover:border-gray-400 hover:shadow-sm cursor-pointer ">
       {first_name}, {last_name}
       <Button className="ml-auto bg-none" onClick={handleFavorite}>
-        <Icon>
+        <Icon className="shadow-sm hover:shadow-md hover:bg-yellow-400 rounded-full">
           <HeartIcon isFavorite={favorite}></HeartIcon>
         </Icon>
       </Button>
