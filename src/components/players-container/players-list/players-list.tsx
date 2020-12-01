@@ -24,7 +24,7 @@ export default function FavoritesList({ players, isFilterable, isEditable }: Pro
   }, [players]);
 
   const filterPlayersByText = (text: string) => {
-    if (searchTherm.toLocaleLowerCase() === '') {
+    if (searchTherm === '') {
       return setFilterablePlayers(players);
     }
 

@@ -1,11 +1,11 @@
 import React from 'react';
+import produce from 'immer';
 import { useSetRecoilState } from 'recoil';
 import { playersStore } from '../../../store/players-store';
 import { Player } from '../../../types/player';
 import Button from '../../button/button';
 import HeartIcon from '../../icon/heart-icon';
 import Icon from '../../icon/icon';
-import immer from 'immer';
 
 interface Props {
   player: Player;
@@ -17,11 +17,13 @@ export default function PlayerCard({ player }: Props) {
 
   const toggleFavorite = () => {
     setPlayersStore((curr) => {
-      const updateFavorite = { ...player, favorite: !player.favorite };
-
-      const newState = [...curr.filter(({ id }) => id !== player.id)];
-
-      return [...newState, updateFavorite];
+      const nextState = produce(curr, (draftState) => {
+        const draft = draftState.find(({ id }) => id === player.id);
+        if (draft) {
+          draft.favorite = !player.favorite;
+        }
+      });
+      return nextState;
     });
   };
 
