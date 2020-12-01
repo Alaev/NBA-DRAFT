@@ -15,6 +15,7 @@
     "@types/throttle-debounce": "^2.1.0",
     "autoprefixer": "^9",
     "classnames": "^2.2.6",
+    "immer": "^8.0.0",
     "postcss": "^7",
     "postcss-cli": "^8.3.0",
     "react": "^17.0.1",
