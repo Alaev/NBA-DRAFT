@@ -19,15 +19,13 @@ export default React.memo(function PlayersListHeader({
   configuration: { isLoading, isFilterable, isEditable },
   toggleModal,
   filterPlayersByText,
-  title
+  title,
 }: Props) {
   const [searchTherm, setSearchTherm] = useState('');
 
   const handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTherm(() => {
-      filterPlayersByText(e.target.value);
-      return e.target.value;
-    });
+    setSearchTherm(e.target.value);
+    filterPlayersByText(e.target.value);
   };
 
   return (

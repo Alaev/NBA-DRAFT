@@ -27,9 +27,10 @@ export default React.memo(function PlayersList({ players, isFilterable, isEditab
       return setFilterablePlayers(players);
     }
 
+    const lowerCase = text.toLocaleLowerCase();
     const filteredPlayers: Player[] = players.filter((player: Player) => {
-      const foundFirstName = player.first_name.toLowerCase().includes(text);
-      const foundLastName = player.last_name.toLowerCase().includes(text);
+      const foundFirstName = player.first_name.toLowerCase().includes(lowerCase);
+      const foundLastName = player.last_name.toLowerCase().includes(lowerCase);
       return foundFirstName || foundLastName;
     });
 
