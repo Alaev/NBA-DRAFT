@@ -31,7 +31,7 @@ export default function ColorModal({ value, onChange, toggle }: Props) {
 
   return (
     <div ref={ref} className="text-gray-50 px-2 py-6 absolute top-12 -right-10 w-96 border bg-blue-900 border-yellow-400 hover:border-blue-400 hover:shadow-2xl shadow-md rounded-md">
-      <Input text="HEX or color name" value={value} onChange={onChange} />
+      <Input label="HEX or color name" value={value} onChange={onChange} />
     </div>
   );
 }
