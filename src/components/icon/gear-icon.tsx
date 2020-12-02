@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GearIcon() {
+export default  React.memo(function GearIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eee">
       <path
@@ -12,4 +12,4 @@ export default function GearIcon() {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
   );
-}
+})

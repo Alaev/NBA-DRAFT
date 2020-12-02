@@ -7,7 +7,7 @@ interface Props {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export default function Button({ children, className, onClick }: Props) {
+export default React.memo(function Button({ children, className, onClick }: Props) {
   const classNames = classnames(
     'py-1 px-1 ml-2 text-sm focus:outline-none',
     className,
@@ -18,4 +18,4 @@ export default function Button({ children, className, onClick }: Props) {
       {children}
     </button>
   );
-}
+})

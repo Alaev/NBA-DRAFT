@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-export default function Icon({children, className}: Props) {
+export default React.memo(function Icon({children, className}: Props) {
   const classNames = classnames(
     'h-6 w-6',
     className,
@@ -16,4 +16,4 @@ export default function Icon({children, className}: Props) {
      {children}
     </div>
   );
-}
+})
