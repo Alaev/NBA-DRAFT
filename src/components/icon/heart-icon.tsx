@@ -1,11 +1,10 @@
 import React from 'react';
 
 interface Props {
-isFavorite?: boolean
+  isFavorite?: boolean;
 }
 
 export default function HeartIcon({ isFavorite }: Props) {
-
   return (
     <svg
       className=""

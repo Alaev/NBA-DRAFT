@@ -3,8 +3,8 @@ import PlayersListContainer from './components/players-container/players-contain
 
 function App() {
   return (
-    <div className="mx-auto w-1/2">
-      <header className="bg-blue-900 text-gray-50 px-4 py-6 mx-1 mt-12 mb-4 border border-yellow-500 uppercase rounded-lg text-center text-6xl">
+    <div className="w-1/2 mx-auto">
+      <header className="px-4 py-6 mx-1 mt-12 mb-4 text-6xl text-center uppercase bg-blue-900 border border-yellow-500 rounded-lg text-gray-50">
         nba draft
       </header>
       <PlayersListContainer />

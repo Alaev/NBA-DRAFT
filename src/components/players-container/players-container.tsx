@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PlayerList from './players-list/players-list';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { draftPlayersStore, favoritesPlayersStore, playersStore } from '../../store/players-store';
+import {
+  draftPlayersStore,
+  favoritesPlayersStore,
+  playersStore,
+} from '../../store/players-store';
 import { URL } from '../../config';
 
 export default React.memo(function PlayersListContainer() {

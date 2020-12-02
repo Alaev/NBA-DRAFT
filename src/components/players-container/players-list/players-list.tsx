@@ -11,7 +11,12 @@ interface Props {
   isLoading?: boolean;
 }
 
-export default React.memo(function PlayersList({ players, isFilterable, isEditable, isLoading }: Props) {
+export default React.memo(function PlayersList({
+  players,
+  isFilterable,
+  isEditable,
+  isLoading,
+}: Props) {
   const configuration = { isFilterable, isLoading, isEditable };
   const [uiColor, setUiColor] = useState(INITIAL_UI_COLOR);
   const [filterablePlayers, setFilterablePlayers] = useState(players);
@@ -29,7 +34,9 @@ export default React.memo(function PlayersList({ players, isFilterable, isEditab
 
     const lowerCase = text.toLocaleLowerCase();
     const filteredPlayers: Player[] = players.filter((player: Player) => {
-      const foundFirstName = player.first_name.toLowerCase().includes(lowerCase);
+      const foundFirstName = player.first_name
+        .toLowerCase()
+        .includes(lowerCase);
       const foundLastName = player.last_name.toLowerCase().includes(lowerCase);
       return foundFirstName || foundLastName;
     });
@@ -37,18 +44,33 @@ export default React.memo(function PlayersList({ players, isFilterable, isEditab
     return setFilterablePlayers(filteredPlayers);
   };
 
-  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => setUiColor(e.target.value);
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setUiColor(e.target.value);
 
   return (
     <div className="relative flex flex-col w-1/2 mx-1 border-2 border-blue-900 shadow-sm rounded-t-md">
-      <PlayersListHeader configuration={configuration} toggleModal={toggleModal} filterPlayersByText={filterPlayersByText} title='Favorites'/>
+      <PlayersListHeader
+        configuration={configuration}
+        toggleModal={toggleModal}
+        filterPlayersByText={filterPlayersByText}
+        title="Favorites"
+      />
 
-      <div className="h-96 px-4 overflow-y-auto bg-gray-100" style={{ backgroundColor: isEditable ? uiColor : undefined }}>
+      <div
+        className="px-4 overflow-y-auto bg-gray-100 h-96"
+        style={{ backgroundColor: isEditable ? uiColor : undefined }}
+      >
         {filterablePlayers.map((player: Player) => (
           <PlayerCard key={player.id} player={player} />
         ))}
       </div>
-      {modal && <ColorModal value={uiColor} onChange={handleColorChange} toggle={toggleModal} />}
+      {modal && (
+        <ColorModal
+          value={uiColor}
+          onChange={handleColorChange}
+          toggle={toggleModal}
+        />
+      )}
     </div>
   );
 });

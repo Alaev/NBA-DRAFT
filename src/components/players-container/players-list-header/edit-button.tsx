@@ -10,7 +10,7 @@ interface Props {
 export default React.memo(function EditButton({ handleEdit }: Props) {
   return (
     <Button
-      className="absolute top-1 right-1 bg-blue-900 text-white hover:bg-blue-700 rounded-full  hover:border-yellow-100"
+      className="absolute text-white bg-blue-900 rounded-full top-1 right-1 hover:bg-blue-700 hover:border-yellow-100"
       onClick={handleEdit}
     >
       <Icon>

@@ -29,9 +29,13 @@ export default React.memo(function PlayersListHeader({
   };
 
   return (
-    <div className="sticky top-0 h-11 px-4 py-2 bg-yellow-400 border-b-2 border-blue-900 font-medium text-blue-900 uppercase rounded-t-md">
+    <div className="sticky top-0 px-4 py-2 font-medium text-blue-900 uppercase bg-yellow-400 border-b-2 border-blue-900 h-11 rounded-t-md">
       {isLoading && <Loading />}
-      {isFilterable ? <Input label="filter" value={searchTherm} onChange={handleFilter} /> : <div>{title}</div>}
+      {isFilterable ? (
+        <Input label="filter" value={searchTherm} onChange={handleFilter} />
+      ) : (
+        <div>{title}</div>
+      )}
       {isEditable && <EditButton handleEdit={toggleModal} />}
     </div>
   );

@@ -9,12 +9,12 @@ interface Props {
 export default React.memo(function Input({ label, onChange, value }: Props) {
   return (
     <>
-      <label>{label}:{' '}</label>
+      <label>{label}: </label>
       <input
-        className="px-1 text-gray-700 focus:outline-none border border-blue-900 focus:border-blue-500"
+        className="px-1 text-gray-700 border border-blue-900 focus:outline-none focus:border-blue-500"
         onChange={onChange}
         value={value}
       />
     </>
   );
-})
+});
