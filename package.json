@@ -40,9 +40,22 @@
   },
   "scripts": {
     "start": "craco start",
+    "start:msw": "NODE_ENV=test craco start",
+    "cy:run": "cypress run",
+    "dev": "NODE_ENV=test CYPRESS_coverage=false start-test 3000 'cypress open'",
+    "cy:e2e": "BROWSER=none NODE_ENV=test start-test 3000 'yarn cy:run --spec ./cypress/**/*.cy.spec.ts'",
+    "cy:unit": "BROWSER=none NODE_ENV=test start-test 3000 'yarn cy:run --spec ./src/components/**/*.cy.spec.tsx'",
     "build": "craco build",
-    "test": "craco test",
+    "test": "yarn cy:unit",
+    "jest": "craco test",
+    "jest:coverage": "CI=true yarn jest --env=jsdom --coverage",
+    "format": "prettier --write 'src/**/*.tsx' 'cypress/**/*.ts' 'cypress/**/*.cy.spec.tsx'",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testMatch": [
+      "/**/*.test.tsx"
+    ]
   },
   "eslintConfig": {
     "extends": [
