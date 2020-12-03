@@ -19,7 +19,8 @@ export default React.memo(function PlayersListContainer() {
       const res = await fetch(URL);
       const body = await res.json();
 
-      setPlayers(body.data);
+      setPlayers(body.data || []);
+
       setIsLoading(false);
     };
     playersResponse();
@@ -27,9 +28,17 @@ export default React.memo(function PlayersListContainer() {
 
   return (
     <div className="flex flex-row justify-between">
-      <PlayerList players={draftPlayers} isFilterable isLoading={isLoading} />
-
-      <PlayerList players={favoritePlayers} isEditable />
+      <PlayerList
+        players={draftPlayers}
+        isFilterable
+        isLoading={isLoading}
+        testId="players-list"
+      />
+      <PlayerList
+        players={favoritePlayers}
+        isEditable
+        testId="favorites-list"
+      />
     </div>
   );
 });

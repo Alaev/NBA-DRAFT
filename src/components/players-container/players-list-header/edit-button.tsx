@@ -12,6 +12,7 @@ export default React.memo(function EditButton({ handleEdit }: Props) {
     <Button
       className="absolute text-white bg-blue-900 rounded-full top-1 right-1 hover:bg-blue-700 hover:border-yellow-100"
       onClick={handleEdit}
+      testId="edit-background-button"
     >
       <Icon>
         <GearIcon />

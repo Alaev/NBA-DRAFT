@@ -13,6 +13,7 @@ interface Props {
 
 export default React.memo(function PlayerCard({ player }: Props) {
   const {
+    id,
     first_name,
     last_name,
     favorite,
@@ -40,7 +41,10 @@ export default React.memo(function PlayerCard({ player }: Props) {
   };
 
   return (
-    <div className="flex flex-row p-4 my-2 bg-white border border-gray-200 cursor-pointer hover:border-gray-400 hover:shadow-sm ">
+    <div
+      data-testid={'player-' + id}
+      className="flex flex-row p-4 my-2 bg-white border border-gray-200 cursor-pointer hover:border-gray-400 hover:shadow-sm "
+    >
       <div className="w-full">
         <div className="flex mb-2 text-blue-900 space-x-14">
           <p>
@@ -48,7 +52,7 @@ export default React.memo(function PlayerCard({ player }: Props) {
             {first_name}, {last_name}{' '}
           </p>
           <p className="text-black">
-            Team: <span className="text-blue-900">{team.name}</span>
+            Team: <span className="text-blue-900">{team?.name}</span>
           </p>
         </div>
         <div className="flex space-x-8">
@@ -65,7 +69,11 @@ export default React.memo(function PlayerCard({ player }: Props) {
           </p>
         </div>
       </div>
-      <Button className="ml-auto bg-none" onClick={handleFavorite}>
+      <Button
+        className="ml-auto bg-none"
+        onClick={handleFavorite}
+        testId="player-heart-button"
+      >
         <Icon className="rounded-full shadow-sm hover:shadow-md hover:bg-yellow-400">
           <HeartIcon isFavorite={favorite}></HeartIcon>
         </Icon>

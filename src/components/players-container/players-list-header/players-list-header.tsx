@@ -32,7 +32,12 @@ export default React.memo(function PlayersListHeader({
     <div className="sticky top-0 px-4 py-2 font-medium text-blue-900 uppercase bg-yellow-400 border-b-2 border-blue-900 h-11 rounded-t-md">
       {isLoading && <Loading />}
       {isFilterable ? (
-        <Input label="filter" value={searchTherm} onChange={handleFilter} />
+        <Input
+          label="filter"
+          value={searchTherm}
+          onChange={handleFilter}
+          data-testid="players-filter"
+        />
       ) : (
         <div>{title}</div>
       )}

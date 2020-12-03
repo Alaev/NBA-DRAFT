@@ -9,6 +9,7 @@ interface Props {
   isFilterable?: boolean;
   isEditable?: boolean;
   isLoading?: boolean;
+  testId?: string;
 }
 
 export default React.memo(function PlayersList({
@@ -16,6 +17,7 @@ export default React.memo(function PlayersList({
   isFilterable,
   isEditable,
   isLoading,
+  testId,
 }: Props) {
   const configuration = { isFilterable, isLoading, isEditable };
   const [uiColor, setUiColor] = useState(INITIAL_UI_COLOR);
@@ -59,6 +61,7 @@ export default React.memo(function PlayersList({
       <div
         className="px-4 overflow-y-auto bg-gray-100 h-96"
         style={{ backgroundColor: isEditable ? uiColor : undefined }}
+        data-testid={testId}
       >
         {filterablePlayers.map((player: Player) => (
           <PlayerCard key={player.id} player={player} />
