@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "experimentalComponentTesting": true,
+  "componentFolder": "src",
+  "testFiles": [
+    "**/*.cy.{js,ts,jsx,tsx}",
+    "**/*.cy.spec.{js,ts,jsx,tsx}"
+  ],
+  "viewportWidth": 1440,
+  "viewportHeight": 900,
+  "video": false
+}
