@@ -20,7 +20,5 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: {
-    purge: ['./src/**/*.tsx', './public/index.html'],
-  },
+  purge: ['./src/**/*.tsx', './public/index.html'],
 };
