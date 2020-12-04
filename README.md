@@ -16,8 +16,31 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner cypress to test react components
+
+### `yarn start:msw`
+
+Runs the app in development with MSW mocks
+
+### `yarn dev`
+
+Starts the server in test mode with MSW and Cypress in interactive mode
+
+### `yarn cy:run`
+
+Runs cypress in interactive mode
+
+### `yarn cy:e2e`
+
+Starts the server in headless mode and runs cypress integrations tests
+
+### `yarn test | yarn cy:unit`
+
+Starts the server in headless mode and runs cypress components tests
+
+### `yarn jest`
+
+Starts Jest with MSW in interactive mode
 
 ### `yarn build`
 
