@@ -7,7 +7,7 @@ interface Props {
 export default function HeartIcon({ isFavorite }: Props) {
   return (
     <svg
-      className=""
+      className="heart-icon"
       xmlns="http://www.w3.org/2000/svg"
       fill={isFavorite ? 'red' : 'none'}
       viewBox="0 0 24 24"

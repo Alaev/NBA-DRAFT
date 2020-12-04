@@ -7,6 +7,7 @@ type FIXTURES = {
   PLAYERS_FILTER_INPUT: string;
   EDIT_BACKGROUND_BUTTON: string;
   BACKGROUND_COLOR_INPUT: string;
+  HEART_ICON: string;
 };
 
 type Player = {
@@ -33,6 +34,7 @@ context('Player container flows', () => {
           PLAYERS_FILTER_INPUT: 'players-filter',
           EDIT_BACKGROUND_BUTTON: 'edit-background-button',
           BACKGROUND_COLOR_INPUT: 'background-color-input',
+          HEART_ICON: `[data-testid=player-${firstPlayer.id}] > [data-testid=player-heart-button] .heart-icon`,
         };
       });
   });
@@ -57,6 +59,9 @@ context('Player container flows', () => {
       'contain',
       firstPlayer.first_name
     );
+
+    // should test heart icon fill change to red
+    cy.get(FIXTURES.HEART_ICON).should('have.css', 'fill', 'rgb(255, 0, 0)');
 
     // expect player card to move back to player list
     cy.findByTestId(FIXTURES.FAVORITES_LIST)

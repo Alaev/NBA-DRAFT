@@ -51,7 +51,7 @@ describe('Players component test using cypress', () => {
     cy.contains(secondPlayer.first_name).should('not.exist');
   });
 
-  it('should move player between lists on click', () => {
+  it('should move player between lists on click and test heart color change', () => {
     cy.findByTestId('players-list')
       .find(
         `[data-testid=player-${firstPlayer.id}] > [data-testid=player-heart-button]`
@@ -60,5 +60,8 @@ describe('Players component test using cypress', () => {
 
     cy.findByTestId('players-list').should('not.be.empty');
     cy.findByTestId('favorites-list').should('not.be.empty');
+
+    // should test heart icon fill change to red
+    cy.get(`[data-testid=player-${firstPlayer.id}] > [data-testid=player-heart-button] .heart-icon`).should('have.css', 'fill', 'rgb(255, 0, 0)');
   });
 });
